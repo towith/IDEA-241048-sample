@@ -1,0 +1,83 @@
+application {
+  config {
+    applicationType monolith
+    authenticationType session
+    baseName wordlearnbackend
+    buildTool gradle
+    cacheProvider ehcache
+    databaseType sql
+    devDatabaseType h2Disk
+    dtoSuffix DTO
+    embeddableLaunchScript true
+    enableHibernateCache true
+    enableSwaggerCodegen true
+    enableTranslation true
+    jhiPrefix jhi
+    jhipsterVersion "6.8.0"
+    languages [zh-cn, en]
+    messageBroker false
+    nativeLanguage zh-cn
+    otherModules []
+    packageName com.willbe.wordl
+    prodDatabaseType postgresql
+    searchEngine elasticsearch
+    serverPort 7100
+    serviceDiscoveryType false
+    skipClient true
+    skipServer false
+    skipUserManagement false
+    testFrameworks []
+    useSass true
+    websocket spring-websocket
+  }
+}
+/* deployment {
+  deploymentType docker-compose
+  appsFolders [wl]
+  dockerRepositoryName "yourDockerLoginName"
+} */
+
+enum Category {
+    ROOT,PREFIX,AFFIX,SUFFIX,SITUATION
+}
+
+entity CategoryWord{
+     category String 
+     word String
+}
+
+entity WordThumbInfo {
+    thumbNum Integer
+    picUrl String
+    thumbLid String
+}
+
+entity WordInfo {
+    word String // act as id
+}
+
+entity UserThumbInfo {
+    word String 
+    selfNum Integer
+    thumbNum Integer
+    picUrl String
+    thumbLid String
+}
+
+entity Feedback{
+    type FeedbackType
+    content  String
+    phone String
+}
+enum FeedbackType{
+    NEW_TEMPLATE,NEW_FEATURE, BUG , OTHER
+}
+
+/**
+ * Many to one relationship.
+ */
+relationship ManyToOne {
+    Feedback{creator} to User
+    UserThumbInfo{clicker} to User
+    WordThumbInfo{word} to    WordInfo
+}

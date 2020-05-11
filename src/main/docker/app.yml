@@ -1,0 +1,22 @@
+version: '2'
+services:
+  wordlearnbackend-app:
+    image: wordlearnbackend
+    environment:
+      - _JAVA_OPTIONS=-Xmx512m -Xms256m
+      - SPRING_PROFILES_ACTIVE=prod,swagger
+      - MANAGEMENT_METRICS_EXPORT_PROMETHEUS_ENABLED=true
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://wordlearnbackend-postgresql:5432/wordlearnbackend
+      - JHIPSTER_SLEEP=30 # gives time for other services to boot before the application
+      - SPRING_DATA_JEST_URI=http://wordlearnbackend-elasticsearch:9200
+      - SPRING_ELASTICSEARCH_REST_URIS=http://wordlearnbackend-elasticsearch:9200
+    ports:
+      - 7100:7100
+  wordlearnbackend-postgresql:
+    extends:
+      file: postgresql.yml
+      service: wordlearnbackend-postgresql
+  wordlearnbackend-elasticsearch:
+    extends:
+      file: elasticsearch.yml
+      service: wordlearnbackend-elasticsearch
