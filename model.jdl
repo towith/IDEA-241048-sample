@@ -1,3 +1,4 @@
+
 application {
   config {
     applicationType monolith
@@ -7,17 +8,13 @@ application {
     cacheProvider ehcache
     databaseType sql
     devDatabaseType h2Disk
-    dtoSuffix DTO
-    embeddableLaunchScript true
     enableHibernateCache true
     enableSwaggerCodegen true
     enableTranslation true
     jhiPrefix jhi
-    jhipsterVersion "6.8.0"
     languages [zh-cn, en]
     messageBroker false
     nativeLanguage zh-cn
-    otherModules []
     packageName com.willbe.wordl
     prodDatabaseType postgresql
     searchEngine elasticsearch
@@ -30,7 +27,8 @@ application {
     useSass true
     websocket spring-websocket
   }
-}
+} 
+
 /* deployment {
   deploymentType docker-compose
   appsFolders [wl]
@@ -81,3 +79,4 @@ relationship ManyToOne {
     UserThumbInfo{clicker} to User
     WordThumbInfo{word} to    WordInfo
 }
+
