@@ -1,10 +1,10 @@
 package com.willbe.wordl.config;
 
-import com.willbe.wordl.security.*;
-
+import com.willbe.wordl.security.AuthoritiesConstants;
 import io.github.jhipster.config.JHipsterProperties;
-import io.github.jhipster.security.*;
-
+import io.github.jhipster.security.AjaxAuthenticationFailureHandler;
+import io.github.jhipster.security.AjaxAuthenticationSuccessHandler;
+import io.github.jhipster.security.AjaxLogoutSuccessHandler;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Import;
 import org.springframework.http.HttpMethod;
@@ -114,7 +114,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             .antMatchers("/api/activate").permitAll()
             .antMatchers("/api/account/reset-password/init").permitAll()
             .antMatchers("/api/account/reset-password/finish").permitAll()
-            .antMatchers("/api/**").authenticated()
+            .antMatchers("/api/**").permitAll()
             .antMatchers("/websocket/tracker").hasAuthority(AuthoritiesConstants.ADMIN)
             .antMatchers("/websocket/**").permitAll()
             .antMatchers("/management/health").permitAll()
