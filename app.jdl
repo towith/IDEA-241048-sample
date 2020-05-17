@@ -1,0 +1,35 @@
+
+application {
+  config {
+    applicationType monolith
+    authenticationType session
+    baseName wordlearnbackend
+    buildTool gradle
+    cacheProvider ehcache
+    databaseType sql
+    devDatabaseType h2Disk
+    enableHibernateCache true
+    enableSwaggerCodegen true
+    enableTranslation true
+    jhiPrefix jhi
+    languages [zh-cn, en]
+    messageBroker false
+    nativeLanguage zh-cn
+    packageName com.willbe.wordl
+    prodDatabaseType postgresql
+    searchEngine elasticsearch
+    serverPort 7100
+    serviceDiscoveryType false
+    skipClient true
+    skipServer false
+    skipUserManagement false
+    testFrameworks []
+    useSass true
+    websocket spring-websocket
+  }
+}
+/* deployment {
+ *   deploymentType docker-compose
+ *   appsFolders [wl]
+ *   dockerRepositoryName "yourDockerLoginName"
+ } */

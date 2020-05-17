@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+    <!--
+        Added the constraints for entity WordThumbInfo.
+    -->
+    <changeSet id="20200517051200-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="word_id"
+                                 baseTableName="word_thumb_info"
+                                 constraintName="fk_word_thumb_info_word_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="word_info"/>
+
+    </changeSet>
+</databaseChangeLog>

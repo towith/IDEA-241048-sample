@@ -1,0 +1,45 @@
+{
+    "name": "UserThumbInfo",
+    "fields": [
+        {
+            "fieldName": "word",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "selfNum",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "thumbNum",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "picUrl",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "thumbLid",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "user",
+            "otherEntityRelationshipName": "userThumbInfo",
+            "relationshipName": "clicker",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200517051400",
+    "entityTableName": "user_thumb_info",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

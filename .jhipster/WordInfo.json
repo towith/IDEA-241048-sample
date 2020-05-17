@@ -1,0 +1,21 @@
+{
+    "name": "WordInfo",
+    "fields": [
+        {
+            "fieldName": "word",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20200517051300",
+    "entityTableName": "word_info",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,38 @@
+{
+    "name": "Feedback",
+    "fields": [
+        {
+            "fieldName": "type",
+            "fieldType": "FeedbackType",
+            "fieldValues": "NEW_TEMPLATE,NEW_FEATURE,BUG,OTHER"
+        },
+        {
+            "fieldName": "content",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "phone",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "user",
+            "otherEntityRelationshipName": "feedback",
+            "relationshipName": "creator",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200517051500",
+    "entityTableName": "feedback",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

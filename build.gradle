@@ -300,9 +300,5 @@ wrapper {
     gradleVersion = "6.1"
 }
 
-
-bootJar {
-    launchScript()
-}
 compileJava.dependsOn processResources
 processResources.dependsOn bootBuildInfo

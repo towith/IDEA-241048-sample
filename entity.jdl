@@ -1,0 +1,46 @@
+
+enum Category {
+    ROOT,PREFIX,AFFIX,SUFFIX,SITUATION
+}
+
+entity CategoryWord{
+     category String 
+     word String
+}
+
+entity WordThumbInfo {
+    thumbNum Integer
+    picUrl String
+    thumbLid String
+}
+
+entity WordInfo {
+    word String // act as id
+}
+
+entity UserThumbInfo {
+    word String 
+    selfNum Integer
+    thumbNum Integer
+    picUrl String
+    thumbLid String
+}
+
+entity Feedback{
+    type FeedbackType
+    content  String
+    phone String
+}
+enum FeedbackType{
+    NEW_TEMPLATE,NEW_FEATURE, BUG , OTHER
+}
+
+/**
+ * Many to one relationship.
+ */
+relationship ManyToOne {
+    Feedback{creator} to User
+    UserThumbInfo{clicker} to User
+    WordThumbInfo{word} to    WordInfo
+}
+

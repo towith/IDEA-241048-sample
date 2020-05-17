@@ -1,0 +1,78 @@
+application {
+  config {
+    applicationType monolith
+    authenticationType session
+    baseName wordlearnbackend
+    buildTool gradle
+    cacheProvider ehcache
+    clientFramework angularX
+    clientPackageManager npm
+    clientTheme none
+    creationTimestamp 1589692020193
+    databaseType sql
+    devDatabaseType h2Disk
+    dtoSuffix DTO
+    embeddableLaunchScript false
+    enableHibernateCache true
+    enableSwaggerCodegen true
+    enableTranslation true
+    jhiPrefix jhi
+    jhipsterVersion "6.8.0"
+    languages [zh-cn, en]
+    messageBroker false
+    nativeLanguage zh-cn
+    otherModules []
+    packageName com.willbe.wordl
+    prodDatabaseType postgresql
+    rememberMeKey "c5254423af2d88b4319c1e21d2aa4c2c2fc2906eba4fa4d3bc277071b8ede60c670c8f692700d66e51fb967c57f3bcdcec3f"
+    searchEngine elasticsearch
+    serverPort 7100
+    serviceDiscoveryType false
+    skipClient true
+    skipServer false
+    skipUserManagement false
+    testFrameworks []
+    useSass true
+    websocket spring-websocket
+  }
+
+  entities CategoryWord, Feedback, UserThumbInfo, WordInfo, WordThumbInfo
+}
+
+entity CategoryWord {
+  category String,
+  word String
+}
+entity Feedback {
+  type FeedbackType,
+  content String,
+  phone String
+}
+entity UserThumbInfo {
+  word String,
+  selfNum Integer,
+  thumbNum Integer,
+  picUrl String,
+  thumbLid String
+}
+entity WordInfo {
+  word String
+}
+entity WordThumbInfo {
+  thumbNum Integer,
+  picUrl String,
+  thumbLid String
+}
+enum FeedbackType {
+  NEW_TEMPLATE,
+  NEW_FEATURE,
+  BUG,
+  OTHER
+}
+
+relationship ManyToOne {
+  Feedback{creator} to User,
+  UserThumbInfo{clicker} to User,
+  WordThumbInfo{word} to WordInfo
+}
+
